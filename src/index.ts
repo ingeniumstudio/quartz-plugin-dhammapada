@@ -13,16 +13,16 @@ export const Dhammapada = (userOpts?: Partial<DhammapadaOptions>) =>
   DhammapadaComponent({ ...globalOptions, ...userOpts });
 
 export { DhammapadaComponent };
-export { ExampleTransformer } from "./transformer";
-export { ExampleFilter } from "./filter";
-export { ExampleEmitter } from "./emitter";
-export { default as ExampleComponent } from "./components/ExampleComponent";
+// export { ExampleTransformer } from "./transformer";
+// export { ExampleFilter } from "./filter";
+// export { ExampleEmitter } from "./emitter";
+// export { default as ExampleComponent } from "./components/ExampleComponent";
 
 export type {
   DhammapadaOptions,
-  ExampleTransformerOptions,
-  ExampleFilterOptions,
-  ExampleEmitterOptions,
+  // ExampleTransformerOptions,
+  // ExampleFilterOptions,
+  // ExampleEmitterOptions,
 } from "./types";
 
 export type { ExampleComponentOptions } from "./components/ExampleComponent";
