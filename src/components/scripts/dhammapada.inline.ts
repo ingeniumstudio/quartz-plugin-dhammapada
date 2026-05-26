@@ -14,7 +14,7 @@ const registerDhammapada = () => {
       return res.text();
     })
     .then((text) => {
-      container.textContent = text;
+      container.innerText = text;
       container.classList.remove("loading");
     })
     .catch((err) => {
