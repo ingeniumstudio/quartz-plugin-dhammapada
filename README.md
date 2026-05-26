@@ -43,7 +43,7 @@ npx quartz plugin add github:your-username/quartz-plugin-dhammapada
 
 ### Configuration (`quartz.config.yaml`)
 
-Add the plugin and configure its options in your `quartz.config.yaml`:
+In Quartz v5, layouts are declarative. Add the plugin to your `plugins` list and specify its position and priority using the `layout` property:
 
 ```yaml
 plugins:
@@ -52,25 +52,20 @@ plugins:
     options:
       endpoint: "https://api.your-service.com/verse"
       className: "dhammapada-verse"
+    layout:
+      position: beforeBody # Places it above the main content
+      priority: 10         # Order relative to other components in the same slot
 ```
 
-### Layout (`quartz.layout.ts`)
+### Layout Slots
 
-Place the component in your layout:
-
-```ts
-import * as DhammapadaPlugin from "./.quartz/plugins/quartz-plugin-dhammapada";
-
-export const defaultContentPageLayout: PageLayout = {
-  beforeBody: [
-    Component.ArticleTitle(),
-    DhammapadaPlugin.Dhammapada(), // Uses options from YAML, or pass overrides here
-  ],
-  // ...
-};
-```
+The available positions are:
+- `left` / `right`: Sidebars
+- `beforeBody` / `afterBody`: Above or below the main article
+- `header` / `footer`: Top and bottom of the page
 
 ## Plugin factory pattern (Astro-style)
+
 
 Quartz plugins are factory functions that return an object with a `name` and hook implementations.
 This mirrors Astro's integration pattern (a function returning an object of hooks), which makes
