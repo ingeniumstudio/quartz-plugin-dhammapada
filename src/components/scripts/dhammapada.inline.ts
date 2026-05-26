@@ -26,8 +26,6 @@ const registerDhammapada = () => {
 }
 
 document.addEventListener("nav", registerDhammapada)
-// @ts-expect-error: window.addCleanup is a Quartz global
 if (typeof window !== "undefined" && window.addCleanup) {
-  // @ts-expect-error: window.addCleanup is a Quartz global
   window.addCleanup(() => document.removeEventListener("nav", registerDhammapada))
 }
