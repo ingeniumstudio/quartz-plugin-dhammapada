@@ -54,18 +54,18 @@ plugins:
       className: "dhammapada-verse"
     layout:
       position: beforeBody # Places it above the main content
-      priority: 10         # Order relative to other components in the same slot
+      priority: 10 # Order relative to other components in the same slot
 ```
 
 ### Layout Slots
 
 The available positions are:
+
 - `left` / `right`: Sidebars
 - `beforeBody` / `afterBody`: Above or below the main article
 - `header` / `footer`: Top and bottom of the page
 
 ## Plugin factory pattern (Astro-style)
-
 
 Quartz plugins are factory functions that return an object with a `name` and hook implementations.
 This mirrors Astro's integration pattern (a function returning an object of hooks), which makes
