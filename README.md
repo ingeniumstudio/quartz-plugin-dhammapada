@@ -35,32 +35,39 @@ The template is configured to bundle all dependencies by default via `noExternal
 
 ## Usage in Quartz
 
-Install your plugin into a Quartz v5 site:
+Install the plugin into your Quartz v5 site:
 
 ```bash
-npx quartz plugin add github:quartz-community/plugin-template
+npx quartz plugin add github:your-username/quartz-plugin-dhammapada
 ```
 
-Then register it in `quartz.config.yaml`:
+### Configuration (`quartz.config.yaml`)
+
+Add the plugin and configure its options in your `quartz.config.yaml`:
 
 ```yaml
 plugins:
-  - source: github:quartz-community/plugin-template
+  - source: github:your-username/quartz-plugin-dhammapada
     enabled: true
     options:
-      highlightToken: "=="
+      endpoint: "https://api.your-service.com/verse"
+      className: "dhammapada-verse"
 ```
 
-If you need to use the plugin in `quartz.ts` for advanced overrides:
+### Layout (`quartz.layout.ts`)
+
+Place the component in your layout:
 
 ```ts
-import * as ExternalPlugin from "./.quartz/plugins";
+import * as DhammapadaPlugin from "./.quartz/plugins/quartz-plugin-dhammapada";
 
-export default {
-  plugins: {
-    transformers: [ExternalPlugin.ExampleTransformer({ highlightToken: "==" })],
-  },
-};
+export const defaultContentPageLayout: PageLayout = {
+  beforeBody: [
+    Component.ArticleTitle(),
+    DhammapadaPlugin.Dhammapada(), // Uses options from YAML, or pass overrides here
+  ],
+  // ...
+}
 ```
 
 ## Plugin factory pattern (Astro-style)
@@ -129,6 +136,19 @@ ExampleEmitter({
   includeFrontmatter: true,
   metadata: { project: "My Garden" },
   transformManifest: (json) => json.replace("My Garden", "Quartz"),
+});
+```
+
+### Component: Dhammapada
+
+`DhammapadaComponent` fetches and displays a verse from an HTTPS endpoint on the home page.
+
+```ts
+import { DhammapadaComponent } from "@quartz-community/plugin-template";
+
+DhammapadaComponent({
+  endpoint: "https://api.example.com/dhammapada",
+  className: "my-custom-verse",
 });
 ```
 

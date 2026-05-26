@@ -1,0 +1,32 @@
+.dhammapada-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-left: 4px solid var(--secondary);
+  background-color: var(--lightgray);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  
+  .dhammapada-text {
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.6;
+    
+    &.loading {
+      color: var(--gray);
+      &::after {
+        content: "...";
+        animation: loading 1.5s infinite;
+      }
+    }
+    
+    &.error {
+      color: var(--red);
+    }
+  }
+}
+
+@keyframes loading {
+  0% { opacity: .2; }
+  50% { opacity: 1; }
+  100% { opacity: .2; }
+}

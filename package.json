@@ -95,29 +95,32 @@
     "vitest": "^2.1.9"
   },
   "quartz": {
-    "name": "plugin-template",
-    "displayName": "Plugin Template",
-    "category": "transformer",
+    "name": "dhammapada-plugin",
+    "displayName": "Dhammapada Verse Plugin",
+    "category": [
+      "component"
+    ],
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
     "dependencies": [],
     "defaultOrder": 50,
     "defaultEnabled": true,
-    "defaultOptions": {},
+    "defaultOptions": {
+      "endpoint": "https://raw.githubusercontent.com/suttacentral/dhammapada/master/text/dhammapada-english.txt",
+      "className": "dhammapada-container"
+    },
     "optionSchema": {
-      "highlightToken": {
-        "type": "enum",
-        "values": [
-          "==",
-          "**",
-          "~~"
-        ]
+      "endpoint": {
+        "type": "string"
+      },
+      "className": {
+        "type": "string"
       }
     },
     "components": {
-      "ExampleComponent": {
-        "displayName": "Example Component",
-        "defaultPosition": "right",
+      "DhammapadaComponent": {
+        "displayName": "Dhammapada Verse",
+        "defaultPosition": "beforeBody",
         "defaultPriority": 50
       }
     }

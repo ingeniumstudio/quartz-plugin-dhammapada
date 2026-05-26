@@ -1,7 +1,8 @@
+import * as _quartz_community_types from '@quartz-community/types';
 import { QuartzTransformerPlugin, QuartzFilterPlugin, QuartzEmitterPlugin } from '@quartz-community/types';
 export { PageGenerator, PageMatcher, QuartzComponent, QuartzComponentConstructor, QuartzComponentProps, QuartzEmitterPlugin, QuartzFilterPlugin, QuartzPageTypePlugin, QuartzPageTypePluginInstance, QuartzTransformerPlugin, StringResource, VirtualPage } from '@quartz-community/types';
-import { ExampleTransformerOptions, ExampleFilterOptions, ExampleEmitterOptions } from './types.js';
-export { ExampleComponent, ExampleComponentOptions } from './components/index.js';
+export { DhammapadaComponent, ExampleComponent, ExampleComponentOptions } from './components/index.js';
+import { ExampleTransformerOptions, ExampleFilterOptions, ExampleEmitterOptions, DhammapadaOptions } from './types.js';
 
 /**
  * Example transformer showing remark/rehype usage and resource injection.
@@ -18,4 +19,7 @@ declare const ExampleFilter: QuartzFilterPlugin<Partial<ExampleFilterOptions>>;
  */
 declare const ExampleEmitter: QuartzEmitterPlugin<Partial<ExampleEmitterOptions>>;
 
-export { ExampleEmitter, ExampleEmitterOptions, ExampleFilter, ExampleFilterOptions, ExampleTransformer, ExampleTransformerOptions };
+declare function init(options?: Partial<DhammapadaOptions>): void;
+declare const Dhammapada: (userOpts?: Partial<DhammapadaOptions>) => _quartz_community_types.QuartzComponent;
+
+export { Dhammapada, DhammapadaOptions, ExampleEmitter, ExampleEmitterOptions, ExampleFilter, ExampleFilterOptions, ExampleTransformer, ExampleTransformerOptions, init };

@@ -19,6 +19,13 @@ export type {
   QuartzPageTypePluginInstance,
 } from "@quartz-community/types";
 
+export interface DhammapadaOptions {
+  /** HTTPS endpoint to fetch the verse from. Returns text/plain. */
+  endpoint: string;
+  /** Optional class name for the container. */
+  className?: string;
+}
+
 export interface ExampleTransformerOptions {
   /** Token used to highlight text, defaults to ==highlight== */
   highlightToken: string;
