@@ -67,7 +67,7 @@ export const defaultContentPageLayout: PageLayout = {
     DhammapadaPlugin.Dhammapada(), // Uses options from YAML, or pass overrides here
   ],
   // ...
-}
+};
 ```
 
 ## Plugin factory pattern (Astro-style)
